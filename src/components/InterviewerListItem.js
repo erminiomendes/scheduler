@@ -1,22 +1,28 @@
 import React from "react";
+import classNames from "classnames";
+
 import "components/InterviewerListItem.scss";
-import classnames from 'classnames';
 
-// renders image of available interviewers on appointment
 export default function InterviewerListItem(props) {
+  const InterviewerClass = classNames('interviewers__item', {
+    'interviewers__item--selected': props.selected,
+  })
+  const InterviewerClassImage = classNames('interviewers__item-image', {
+    'interviewers__item-image--selected': props.selected,
+  })
 
-  const itemClass = classnames("interviewers__item", {    
-      "interviewers__item--selected": props.selected      
-    });
-
-    return (
-    <li className={itemClass} onClick={props.setInterviewer}>
+  return (
+    <li
+      className={InterviewerClass}
+      onClick={props.onChange}
+    >
       <img
-        className="interviewers__item-image"
+        className={InterviewerClassImage}
         src={props.avatar}
         alt={props.name}
       />
       {props.selected && props.name}
-    </li>
-  );
-} 
+    </li >
+  )
+};
+
