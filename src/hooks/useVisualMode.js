@@ -29,3 +29,4 @@ const useVisualMode = (inicialMode) => {
 };
 
 export default useVisualMode;
+
